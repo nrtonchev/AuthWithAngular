@@ -71,8 +71,8 @@ namespace Infrastructure.Services
 				throw new DomainException("Refresh token is expired!");
 			}
 
-			RemoveOldRefreshTokens(existingUser);
 			var newRefreshToken = utils.GenerateRefreshToken();
+			RemoveOldRefreshTokens(existingUser);
 			existingUser.RefreshTokens.Add(newRefreshToken);
 
 			context.Update(existingUser);

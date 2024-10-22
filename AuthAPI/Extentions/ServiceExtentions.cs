@@ -1,5 +1,7 @@
-﻿using Core.Models;
+﻿using Core.Interfaces;
+using Core.Models;
 using Infrastructure;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +37,9 @@ namespace AuthAPI.Extentions
 		public static void RegisterServices(this IServiceCollection services)
 		{
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+			services.AddScoped<IAuthService, AuthService>();
+			services.AddScoped<IUserService, UserService>();
+			services.AddScoped<ITokenUtils, TokenUtils>();
 		}
 
 		public static void RegisterAuthServices(this IServiceCollection services, IConfiguration config)

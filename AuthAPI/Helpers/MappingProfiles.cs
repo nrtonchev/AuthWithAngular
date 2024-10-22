@@ -12,6 +12,8 @@ namespace AuthAPI.Helpers
             CreateMap<AuthResponse, User>();
             CreateMap<RegisterRequest, User>();
             CreateMap<User, UserDto>();
+            CreateMap<CreateUserDto, User>();
+            CreateMap<UpdateUserDto, User>();
         }
     }
 }

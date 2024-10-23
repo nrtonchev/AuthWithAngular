@@ -1,0 +1,17 @@
+<nav class="navigation">
+    <a class="button" 
+    [routerLink]="['/home']" 
+    routerLinkActive="activebutton" >Home</a>
+    <a class="button" 
+    [routerLink]="['/register']" 
+    routerLinkActive="activebutton" >Register</a>
+    @if (!isUserAuthenticated) {
+        <a class="button" 
+        [routerLink]="['/login']" 
+        routerLinkActive="activebutton" >Login</a>
+    }
+    @else {
+        <a class="button logout" 
+        (click)="logOut()" >Logout</a>
+    }
+</nav>
